@@ -139,7 +139,7 @@ issuesFromStorage().done(function(issues) {
 });
 
 chrome.storage.onChanged.addListener(function(changes, namespace) {
-    if (namespace == "local" && "issues" in changes) {
+    if (namespace == "local") {
         reactRootElement = React.createElement(IssueList, {issues: issues});
         React.render(reactRootElement, document.getElementById("queue"));
     }
